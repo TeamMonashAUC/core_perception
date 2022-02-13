@@ -7,6 +7,9 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
+
+
+
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -103,7 +106,7 @@ int main(int argc, char **argv)
   private_nh.getParam("plane", _plane);
   pose_publisher = nh.advertise<geometry_msgs::PoseStamped>("gnss_pose", 1000);
   stat_publisher = nh.advertise<std_msgs::Bool>("/gnss_stat", 1000);
-  ros::Subscriber gnss_pose_subscriber = nh.subscribe("fix", 100, GNSSCallback);
+  ros::Subscriber gnss_pose_subscriber = nh.subscribe("/airsim_node/PhysXCar/global_gps/Gps", 100, GNSSCallback);
 
   ros::spin();
   return 0;
